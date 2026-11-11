@@ -1,0 +1,441 @@
+/* =========================================
+   Reset e Variáveis Globais
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de Cores baseada no Wireframe */
+    --cor-fundo-escuro: #2C1E16; /* Marrom escuro do cabeçalho/footer/ambiente */
+    --cor-fundo-claro: #FDF9F3; /* Bege bem claro do banner principal */
+    --cor-fundo-branco: #FFFFFF; /* Fundo branco da seção sobre */
+    --cor-primaria: #D1AE8E; /* Bege/Dourado dos botões e labels */
+    --cor-texto-escuro: #1A110B; 
+    --cor-texto-claro: #FFFFFF;
+    --cor-form-bg: #8B541B; /* Marrom dos campos do formulário */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto-escuro);
+    background-color: var(--cor-fundo-claro);
+    line-height: 1.6;
+}
+
+/* =========================================
+   Tipografia e Estilos Genéricos
+   ========================================= */
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+.etiqueta {
+    color: var(--cor-primaria);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Botões */
+.botao-principal, .botao-secundario, button[type="submit"] {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 0.75rem 2rem;
+    border-radius: 25px; /* Formato de pílula */
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+    text-align: center;
+}
+
+.botao-principal:hover, .botao-secundario:hover, button[type="submit"]:hover {
+    filter: brightness(0.9);
+}
+
+/* =========================================
+   Cabeçalho Principal
+   ========================================= */
+
+.cabecalho-principal {
+    background-color: var(--cor-fundo-escuro);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marca {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.marca span {
+    font-weight: 700;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.menu a {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-escuro);
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #C09870;
+}
+
+/* =========================================
+   Seção: Início (Banner)
+   ========================================= */
+
+#inicio {
+    padding: 5rem 5%;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background-color: var(--cor-fundo-claro);
+}
+
+.banner-conteudo {
+    flex: 1;
+}
+
+.banner-imagem {
+    flex: 1;
+    background-color: #D5BCA3; /* Placeholder se a imagem não carregar */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.banner-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* =========================================
+   Seção: Sobre
+   ========================================= */
+
+#sobre {
+    background-color: var(--cor-fundo-branco);
+    padding: 5rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "img header"
+        "img texto"
+        "img botao";
+    gap: 1rem 4rem;
+    align-items: start;
+}
+
+.sobre-imagem {
+    grid-area: img;
+    background-color: #D5BCA3;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sobre-cabecalho {
+    grid-area: header;
+    align-self: end;
+}
+
+.sobre-texto {
+    grid-area: texto;
+    margin-bottom: 2rem;
+}
+
+.botao-secundario {
+    grid-area: botao;
+    justify-self: start;
+}
+
+/* =========================================
+   Seção: Produtos (Cafés)
+   ========================================= */
+
+#cafes {
+    padding: 5rem 5%;
+    background-color: var(--cor-fundo-claro);
+    text-align: center;
+}
+
+.cabecalho-secao p:not(.etiqueta) {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+.lista-cafes {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card-cafe {
+    background-color: var(--cor-fundo-branco);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-cafe figure {
+    background-color: #D5BCA3;
+    height: 180px;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card-cafe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-cafe h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-cafe p {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1; /* Empurra o preço para baixo */
+}
+
+.card-cafe strong {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* =========================================
+   Seção: Ambiente
+   ========================================= */
+
+#ambiente {
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto-claro);
+    padding: 5rem 5%;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+#ambiente h2 {
+    color: var(--cor-texto-claro);
+}
+
+.ambiente-conteudo {
+    flex: 1;
+}
+
+.ambiente-imagem {
+    flex: 1;
+    background-color: #D5BCA3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ambiente-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================
+   Seção: Contato
+   ========================================= */
+
+#contato {
+    background-color: var(--cor-fundo-claro);
+    padding: 5rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contato form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Escondendo os labels visualmente, mas mantendo a acessibilidade */
+
+.contato label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.contato input, .contato textarea {
+    width: 100%;
+    background-color: var(--cor-form-bg);
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    color: var(--cor-texto-claro);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+/* Placeholder styles para parecer o texto interno que tem na imagem */
+
+.contato input::placeholder, .contato textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contato button {
+    margin-top: 0.5rem;
+}
+
+/* =========================================
+   Rodapé
+   ========================================= */
+
+.rodape {
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto-claro);
+    padding: 3rem 5% 1rem 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marca-rodape {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.marca-rodape span {
+    font-weight: 700;
+}
+
+.rodape-navegacao ul, .redes-sociais ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.rodape a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.rodape a:hover {
+    color: var(--cor-primaria);
+}
+
+.frase-rodape {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+}
+
+/* =========================================
+   Responsividade (Mobile & Tablets)
+   ========================================= */
+
+@media (max-width: 900px) {
+    #inicio, #ambiente, #contato {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #sobre {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "img"
+            "texto"
+            "botao";
+        text-align: center;
+    }
+    
+    .botao-secundario {
+        justify-self: center;
+    }
+
+    .lista-cafes {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    #contato {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu {
+        display: none; /* No mobile real, você faria um menu hambúrguer */
+    }
+}
